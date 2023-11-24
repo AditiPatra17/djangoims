@@ -1,0 +1,25 @@
+{% extends "../layout.html" %}
+{% block content %}
+<div class="content-section">
+    <div class="row mx-auto justify-content-center">
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title text-center">Product Name:</h2>
+                <div style="font-size: 30px;" class="text-center">
+                    <span><i class="fab fa-product-hunt fa-flip fa-sm" style="color: #511f44;"></i></span> 
+                </div>
+                <h3 class="text-center"><u>{{ inventory.name }}</u></h3>
+                <h5 class="text-center">-{{ inventory.quantity_in_stock }} pieces in stock</h5>
+                <h5 class="text-center">-{{ inventory.quantity_sold }} pieces sold</h5>
+                <h5 class="text-center">-Cost per item: ${{ inventory.cost_per_item }}</h5>
+                <h5 class="text-center">-Total Sales: ${{ inventory.sales }}</h5>
+                <h5 class="text-center">-Stock date: {{ inventory.stock_date }}</h5>
+                <h5 class="text-center">-Last Stock date: {{ inventory.last_sales }}</h5>
+            </div>
+        </div>
+
+        <a class="btn btn-success btn-sm mb-3" href="{% url 'update_inventory' inventory.id %}">Update Inventory</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'delete_inventory' inventory.id %}">Delete Inventory</a>
+    </div>
+</div>
+{% endblock %}
